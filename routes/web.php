@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//การสร้าง Route
+Route::get('/about', function () {
+    echo '<h1>สวัสดีครับ</h1>';
+});
+
+Route::get('/user/{name}/{lastname}', function ($name, $lastname) {
+    echo "<h1>ชื่อ: $lastname </h1>";
+    echo "<h1>นามสกุล: $lastname </h1>";
+});
