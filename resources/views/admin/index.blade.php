@@ -11,6 +11,11 @@
         @if ( $user == "admin" && $user2 == "panutat")
             <h1>Admin Page</h1>
             <h1>ยินดีต้อนรับ {{ $user }}</h1>
+            <a href="{{ url('/about') }}">Home</a>
+            <a href="{{ url('/admin') }}">Admin</a>
+            <a href="{{ route('mem') }}">Member</a>
+            <a href="{{ route('about') }}">About</a>
+            
             @foreach ($arr as $row)
                 <li>{{ $row }}</li>
             @endforeach
