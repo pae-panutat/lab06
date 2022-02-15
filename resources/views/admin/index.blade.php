@@ -1,6 +1,27 @@
 @extends('master')
 @section('content')
     <div class="container my-5">
-        <h1>Admin Page</h1>
+       
+        @php
+            $user = "admin";
+            $user2 = "panutat";
+            $arr = array("HOME","member", "about", "contact");
+        @endphp
+        <br>
+        @if ( $user == "admin" && $user2 == "panutat")
+            <h1>Admin Page</h1>
+            <h1>ยินดีต้อนรับ {{ $user }}</h1>
+            @foreach ($arr as $row)
+                <li>{{ $row }}</li>
+            @endforeach
+        @else
+            {{-- <h1>คุณไม่ใช่ Admin</h1> --}}
+            <script>
+                 alert('คุณไม่มีสิทธิ์หน้านี้');
+                 window.location.href = '{{url("about")}}';
+            </script>
+        @endif
+
+       
     </div>
 @endsection
