@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 
 //การสร้าง Route
-Route::get('/about', function () {
-    echo '<h1>สวัสดีครับ</h1>';
+Route::get('/about', [AboutController::class, 'showData']);
+Route::get('/member', [MemberController::class, 'index']);
+
+
+Route::get('/admin', function () {
+    return view('admin.index');
 });
 
-Route::get('/user/{name}/{lastname}', function ($name, $lastname) {
-    echo "<h1>ชื่อ: $lastname </h1>";
-    echo "<h1>นามสกุล: $lastname </h1>";
-});
+// Route::get('/user/{name}/{lastname}', function ($name, $lastname) {
+//     echo "<h1>ชื่อ: $lastname </h1>";
+//     echo "<h1>นามสกุล: $lastname </h1>";
+// });
